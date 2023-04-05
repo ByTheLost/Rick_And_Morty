@@ -1,14 +1,21 @@
 import './App.css';
 import Cards from './components/Cards.jsx';
 import Nav from './components/Nav';
-import { useState } from 'react';
 import axios from 'axios';
+import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import About from './components/About';
+import Detail from './components/Detail';
+import NotFound from './components/NotFound';
+
+const URL_BASE = 'https://rickandmortyapi.com/api/character/';
+const API_KEY = '921c53ed19ee.c07a3c34e20b05d4765f';
 
 function App() {
 
    const [characters, setCharacters] = useState([]);
    const onSearch = (id) => {
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+      axios(`${URL_BASE}/${id}?key=${API_KEY}`).then(({ data }) => {
          if (data.name) {
             setCharacters((oldChars) => [...oldChars, data]);
          } else {
@@ -24,8 +31,13 @@ function App() {
 
    return (
       <div className='App'>
-            <Nav onSearch={onSearch} />
-            <Cards characters={characters} onClose={onClose}/>
+         <Nav onSearch={onSearch} />
+         <Routes>
+            <Route path='/about' element={<About />} />
+            <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
+            <Route path='/detail/:id' element={<Detail />}/>
+            <Route path='*' element={<NotFound />}/>
+         </Routes>
       </div>
    );
 }
