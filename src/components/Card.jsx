@@ -1,14 +1,19 @@
+import '../styles/Card.css'
+
 export default function Card({ id, name, status, species, gender, origin, image, onClose }) {
    return (
-      <div>
-         <button onClick={() => onClose(id)}>X</button>
-         {/* <h2>ID: {id}</h2> */}
-         <h2>Name: {name}</h2>
-         <h2>Status: {status}</h2>
-         <h2>Species: {species}</h2>
-         <h2>Gender: {gender}</h2>
-         <h2>Origin: {origin}</h2>
-         <img src={image} alt='' />
+      <div className='container'>
+         <div className='card'>
+            <div className='content'>
+            <button onClick={() => onClose(id)}>X</button>
+            <h4>Name: {name}</h4>
+            <h4>Status: {status}</h4>
+            <h4>Species: {species}</h4>
+            <h4>Gender: {gender}</h4>
+            <h4>Origin: {origin}</h4>
+            <img src={image} alt='' />
+            </div>
+         </div>
       </div>
    );
 }

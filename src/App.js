@@ -24,8 +24,8 @@ function App() {
 
    return (
       <div className='App'>
-         <Nav onSearch={onSearch} />
-         <Cards characters={characters} onClose={onClose}/>
+            <Nav onSearch={onSearch} />
+            <Cards characters={characters} onClose={onClose}/>
       </div>
    );
 }
