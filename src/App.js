@@ -1,15 +1,20 @@
 import './App.css';
-import Cards from './components/Cards.jsx';
-import Nav from './components/Nav';
+import Cards from './components/Cards/Cards.jsx';
+import Nav from './components/Nav/Nav.';
 import axios from 'axios';
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import About from './components/About';
+import About from './components/About/About.jsx';
 import Detail from './components/Detail';
 import NotFound from './components/NotFound';
 
-const URL_BASE = 'https://rickandmortyapi.com/api/character/';
-const API_KEY = '921c53ed19ee.c07a3c34e20b05d4765f';
+// Antigua
+// const URL_BASE = 'https://rickandmortyapi.com/api/character/';
+// const API_KEY = '373a712eb6cf.c55d560296bcfb1b20a3';
+
+// Actual
+const URL_BASE = 'https://be-a-rym.up.railway.app/api/character/';
+const API_KEY = '373a712eb6cf.c55d560296bcfb1b20a3';
 
 function App() {
 
@@ -23,9 +28,10 @@ function App() {
          }
       });
    };
-
+   // character.id !== Number(id)
+   // console.log(character.id, Number(id))
    const onClose = (id) => {
-      const charactersFiltered = characters.filter(character => character.id !== Number(id));
+      const charactersFiltered = characters.filter(character => character.id !== id);
       setCharacters(charactersFiltered);
    };
 

@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .container .card {
@@ -23,7 +22,14 @@
 }
 
 .container .card .content {
-  padding: 30px;
+  padding: 28px;
   text-align: center;
-  transition: 0.5s;
+}
+
+.content h4 {
+  margin: 0 0 26px 0;
+}
+
+a {
+  text-decoration: none;
 }
