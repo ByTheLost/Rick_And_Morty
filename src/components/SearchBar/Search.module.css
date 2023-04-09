@@ -9,6 +9,7 @@
 }
 
 .searchBar input {
+  width: 400px;
   background: transparent;
   flex: 1;
   border: 0;

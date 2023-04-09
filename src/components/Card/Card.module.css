@@ -18,7 +18,12 @@
   align-items: flex-start;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(15px);
+  /* backdrop-filter: blur(15px); */
+  transition: 0.2s;
+}
+
+.container .card:hover {
+  transform: scale(1.03);
 }
 
 .container .card .content {
@@ -27,9 +32,44 @@
 }
 
 .content h4 {
-  margin: 0 0 26px 0;
+  margin: 0 0 16px 0;
+}
+
+.message {
+  font-weight: normal;
+  display: inline;
 }
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+.btn {
+  background: rgb(252, 217, 217);
+  font-weight: semibold;
+  color: #444;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  border: 2px solid rgb(252, 217, 217);
+  border-color: transparent;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  box-shadow: .5rem .5rem 1rem #a1a1a1cc,
+  -.5rem -.5rem 1rem #fff;
+  margin-bottom: 20px;
+}
+
+.btn:hover {
+  color: red;
+  background:  rgb(255, 190, 190);
+  box-shadow: .5rem .5rem 1rem #fff,
+  -.5rem -.5rem 1rem #a1a1a1cc;
+}
+
+.btn:active {
+  box-shadow: inset .2rem .2rem 1rem rgb(255, 190, 190),
+  -.2rem -.2rem 1rem #a1a1a1cc;
 }

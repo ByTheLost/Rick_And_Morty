@@ -1,6 +1,8 @@
+import style from './About.module.css'
+
 function About() {
   return (
-    <div>Este es mi componente about</div>
+    <div className={style.body}>Este es mi componente about</div>
   )
 }
 
