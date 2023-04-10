@@ -26,8 +26,11 @@ const Nav = ({ onSearch }) => {
           </li>
         </ul>
       </nav>
+      <NavLink to='/'className={style.btn}>
+        <button>Log out</button>
+      </NavLink>
       <NavLink to='/contact'className={style.btn}>
-        <button>Contacto</button>
+        <button>Contact</button>
       </NavLink>
     </div>
   )
