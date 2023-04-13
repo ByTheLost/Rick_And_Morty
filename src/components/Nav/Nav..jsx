@@ -2,12 +2,12 @@ import style from'./Nav.module.css'
 import SearchBar from '../SearchBar/SearchBar.jsx';
 import { NavLink } from "react-router-dom";
 
-const Nav = ({ onSearch }) => {
+const Nav = ({ onSearch, logout }) => {
   return (
     <div className={style.header}>
       <div className={style.logo}>
         <NavLink to='/home'>
-          <img src={require('../../img/RAM.png')} />
+          <img src={require('../../img/RAM.png')} alt='Logo de Rick and Morty'/>
         </NavLink>
       </div>
       <SearchBar onSearch={onSearch}/>
@@ -22,13 +22,13 @@ const Nav = ({ onSearch }) => {
             <NavLink className='Link' to='/about' >About</NavLink>
           </li>
           <li>
-            <a className='Link'>Random</a>
+            <NavLink className='Link' to='!#'>Random</NavLink>
           </li>
         </ul>
       </nav>
-      <NavLink to='/'className={style.btn}>
-        <button>Log out</button>
-      </NavLink>
+      <navlinks to='!#' className={style.btn}>
+        <button onClick={logout}>Log out</button>
+      </navlinks>
       <NavLink to='/contact'className={style.btn}>
         <button>Contact</button>
       </NavLink>

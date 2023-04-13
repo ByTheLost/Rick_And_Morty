@@ -1,13 +1,13 @@
 import './App.css';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation, Routes, Route } from 'react-router-dom';
 import Cards from './components/Cards/Cards.jsx';
 import Nav from './components/Nav/Nav.';
-import axios from 'axios';
-import { useState } from 'react';
-import { useLocation, Routes, Route } from 'react-router-dom';
 import About from './components/About/About.jsx';
 import Detail from './components/Detail';
 import NotFound from './components/NotFound';
-import InitialPage from './components/InitialPage/InitialPage';
+import Form from './components/Form/Form';
 
 // Antigua
 // const URL_BASE = 'https://rickandmortyapi.com/api/character/';
@@ -17,9 +17,32 @@ import InitialPage from './components/InitialPage/InitialPage';
 const URL_BASE = 'https://be-a-rym.up.railway.app/api/character/';
 const API_KEY = '373a712eb6cf.c55d560296bcfb1b20a3';
 
-function App() {
+const EMAIL = '1234@gmail.com';
+const PASSWORD = '1234aoeu';
 
+function App() {
+   
+   const location = useLocation().pathname;
+   const navigate = useNavigate();
    const [characters, setCharacters] = useState([]);
+   const [access, setAccess] = useState(false);
+
+   const login = (userData) => {
+      if (userData.email === EMAIL && userData.password === PASSWORD) {
+         setAccess(true);
+         navigate('/home');
+      };
+   };
+
+   const logout = () => {
+        setAccess(false);
+        navigate('/');
+    }
+
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access, navigate]);
+
    const onSearch = (id) => {
       axios(`${URL_BASE}/${id}?key=${API_KEY}`).then(({ data }) => {
          if (data.name) {
@@ -29,20 +52,17 @@ function App() {
          }
       });
    };
-   // character.id !== Number(id)
-   // console.log(character.id, Number(id))
+
    const onClose = (id) => {
       const charactersFiltered = characters.filter(character => character.id !== id);
       setCharacters(charactersFiltered);
    };
-   
-   const location = useLocation().pathname
 
    return (
       <div className='App'>
-         {location !== '/' && <Nav onSearch={onSearch} />}
+         {location !== '/' ? <Nav onSearch={onSearch} logout={logout}/> : null}
          <Routes>
-            <Route path='/' element={<InitialPage />}/>
+            <Route path='/' element={<Form login={login}/>}/>
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
             <Route path='/about' element={<About />} />
             <Route path='/detail/:id' element={<Detail />}/>

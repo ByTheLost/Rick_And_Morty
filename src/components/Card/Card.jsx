@@ -9,13 +9,13 @@ export default function Card({ id, name, status, species, gender, origin, image,
                <button className={style.btn} onClick={() => onClose(id)}>X</button>
 
                <Link to={`/detail/${id}`}>
-                  <h4>Name: <h4 className={style.message}>{name}</h4></h4>
+                  <h4>Name: <p className={style.message}>{name}</p></h4>
                </Link>
             
-               <h4>Status: <h4 className={style.message}>{status}</h4></h4>
-               <h4>Species: <h4 className={style.message}>{species}</h4></h4>
-               <h4>Gender: <h4 className={style.message}>{gender}</h4></h4>
-               <h4>Origin: <h4 className={style.message}>{origin}</h4></h4>
+               <h4>Status: <p className={style.message}>{status}</p></h4>
+               <h4>Species: <p className={style.message}>{species}</p></h4>
+               <h4>Gender: <p className={style.message}>{gender}</p></h4>
+               <h4>Origin: <p className={style.message}>{origin}</p></h4>
                <img src={image} alt='' />
             </div>
          </div>

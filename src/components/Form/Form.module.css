@@ -21,8 +21,8 @@
 }
 
 .img {
-  width: 20px;
-  height: 20px;
+  width: 23px;
+  height: 23px;
 }
 
 .wraper {
@@ -130,6 +130,7 @@
   margin: -15px 0 15px;
   display: flex;
   justify-content: space-between;
+  padding-top: 20px;
 }
 
 .remember_forgot label input {
@@ -166,6 +167,7 @@
 
 
 .btn:active {
+  transform: scale(1);
   background-color: #1b2b3778;
   color: #ffffff78;
 }
